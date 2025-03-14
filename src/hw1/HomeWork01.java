@@ -18,8 +18,6 @@ public class HomeWork01 {
 
 		int eggs = 200;
 
-//		int dozenEggs = eggs / 12, lefteggs = eggs % 12;
-//		int lefteggs = eggs % 12;
 		System.out.println((eggs / 12) + "打" + (eggs % 12) + "顆"); // 16打8顆
 
 		System.out.println("-------------------");
