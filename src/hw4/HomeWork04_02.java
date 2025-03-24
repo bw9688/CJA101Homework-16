@@ -12,7 +12,7 @@ public class HomeWork04_02 {
 		char[] strChar = str.toCharArray();
 		char[] resultChar = new char[strChar.length];
 
-		int index = strChar.length - 1; // index 只做計算用
+		int index = strChar.length - 1; // index 只在運算過程中使用，通常做為索引值
 
 		for (int i = 0; i < strChar.length; i++) {
 			resultChar[index] = strChar[i];
@@ -30,7 +30,7 @@ public class HomeWork04_02 {
 
 		String[] planets = new String[] { "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus",
 				"neptune" };
-		int count = 0;
+		int count = 0; //count只在運算過程中使用，通常做為計算次數用
 
 		for (index = 0; index < planets.length; index++) {
 			char[] c = planets[index].toCharArray();
@@ -51,6 +51,7 @@ public class HomeWork04_02 {
 //		員工編號: 25 19 27 共3 人!」
 //		(提示：Scanner，二維陣列)
 
+		// 
 		Empolyee[] empArr = new Empolyee[5];
 
 		empArr[0] = new Empolyee(25, 2500);
@@ -62,7 +63,8 @@ public class HomeWork04_02 {
 		System.out.println("請輸入要借的金額");
 		Scanner sc = new Scanner(System.in);
 		int borrowM = sc.nextInt();
-		// 重設呈現結果用的字串跟計算用的數字
+		
+		// 因為換下一題，重設呈現結果用的字串跟計算用的數字
 		resultStr = "";
 		count = 0;
 
@@ -85,17 +87,22 @@ public class HomeWork04_02 {
 
 		int years = sc.nextInt();
 		int inputMounth = sc.nextInt();
+		
+		// 所有月份的天數 1月31天、2月28天等等
 		int[] mounths = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+		// 如果是閏年，2月有29天
 		if (years % 4 == 0) {
 			mounths[1] = 29;
 		}
-
+		
+		//月份數字與檢查
 		while (inputMounth > 12 || inputMounth < 0) {
 			System.out.println("請重新輸入1~12之間的數字代表月份");
 			inputMounth = sc.nextInt();
 		}
 
+		//日期數字與檢查
 		int day = sc.nextInt();
 		count = 0;
 
@@ -103,11 +110,13 @@ public class HomeWork04_02 {
 			if (inputMounth == 2) {
 				System.out.println("2月只有" + mounths[1] + "天");
 			}
-			System.out.println("請重新輸入日期");
+//			System.out.println("請重新輸入日期");
+			System.out.printf("請輸入1~%d之間的數字代表日期", mounths[inputMounth - 1]);
+			System.out.println();
 			day = sc.nextInt();
 		}
 
-
+		// 計算為該年第幾天
 		for (index = 0; index < inputMounth - 1; index++) {
 			count = count + mounths[index];
 		}
@@ -119,6 +128,7 @@ public class HomeWork04_02 {
 //		請算出每位同學考最高分的次數
 //		(提示：二維陣列)
 
+		//小考成績建成二維陣列
 		int[][] scores = new int[6][8];
 
 		scores[0] = new int[] { 10, 35, 40, 100, 90, 85, 75, 70 };
@@ -128,9 +138,10 @@ public class HomeWork04_02 {
 		scores[4] = new int[] { 98, 70, 89, 90, 75, 90, 89, 90 };
 		scores[5] = new int[] { 90, 80, 100, 75, 50, 20, 99, 75 };
 
-		int[] countHighestScore = new int[8];
 
-		// 每次小考
+		int[] countHighestScore = new int[8];	// 每位學生考最高分的次數
+
+		// 在每次小考中找出考最高分的學生並記錄考最高分的次數
 		for (int c = 0; c < scores.length; c++) {
 			int highestScore = 0;
 			// 找出本次小考最高分
@@ -146,9 +157,9 @@ public class HomeWork04_02 {
 				}
 			}
 		}
-
+		
 		for (int i = 0; i < countHighestScore.length; i++) {
-			System.out.println("第" + (i + 1) + "位同學考最高分的次數是:" + countHighestScore[i] + "次");
+			System.out.printf("第%d位學生考了%d次最高分 ", (i + 1), countHighestScore[i]);
 
 		}
 
