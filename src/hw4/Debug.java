@@ -72,8 +72,4 @@ public class Debug {
 		System.out.println(output);
 	}
 
-//public static void main(String[] args) {
-//Debug.log();
-//}
-
 }
