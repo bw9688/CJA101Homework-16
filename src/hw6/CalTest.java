@@ -2,7 +2,7 @@ package hw6;
 
 import java.util.Scanner;
 
-import hw4.Debug;
+import util.Debug;
 
 /*
  *  請設計三個類別Calculator.java，CalException.java與CalTest.java，在Calculator.java裡有個自訂
